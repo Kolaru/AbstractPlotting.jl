@@ -206,6 +206,10 @@ function default_attributes(::Type{Axis}, scene)
         yreversed = false
         "Controls if the x axis goes rightwards (false) or leftwards (true)"
         xreversed = false
+        "Cycler for plot attributes"
+        cycler = MyCycler()
+        "Palette Attributes"
+        palette = isnothing(scene) ? Attributes() : scene.palette
     end
 
     (attributes = attrs, documentation = docdict, defaults = defaultdict)
@@ -664,7 +668,7 @@ function default_attributes(::Type{Legend}, scene)
         "The default points used for LineElements in normalized coordinates relative to each label patch."
         linepoints = [Point2f0(0, 0.5), Point2f0(1, 0.5)]
         "The default line width used for LineElements."
-        linewidth = 3
+        linewidth = 1.5
         "The default marker points used for MarkerElements in normalized coordinates relative to each label patch."
         markerpoints = [Point2f0(0.5, 0.5)]
         "The default marker size used for MarkerElements."
